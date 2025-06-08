@@ -37,6 +37,29 @@ sudo apt install hcloud-cli
 hcloud version
 ```
 
+Note: The official hcloud CLI is built and released for Linux/macOS/Windows x86_64 and FreeBSD—but not directly for Raspberry Pi’s ARM architecture, so you won’t find a ready-made ARM binary for Raspbian/Ubuntu on Pi but you can ompile from source (Go). 
+
+1.	Install Go (e.g. sudo apt install golang-go).
+
+2.	Clone the CLI repo:
+```bash
+git clone https://github.com/hetznercloud/cli.git
+cd cli
+```
+
+3.	Build the binary:
+```bash
+go build -o hcloud ./cmd/hcloud
+```
+
+4.	Move the executable into your PATH:
+```bash
+sudo mv hcloud /usr/local/bin/
+hcloud version  # should run fine
+```
+
+This approach works flawlessly on ARM and gives you the latest features.
+
 ## Installation
 
 1. Clone the repository:
@@ -170,18 +193,7 @@ Notifications are sent in a formatted Markdown message containing:
    - Check server ID and permissions
    - Ensure sufficient disk space
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
 ## License
 
 This project is licensed under the GPL v3 License - see the LICENSE file for details.
 
-## Author
-
-- drhdev
-
-## Version
-
-Current version: 0.2.3
