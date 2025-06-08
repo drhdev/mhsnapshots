@@ -1,0 +1,15 @@
+# Example configuration for Hetzner Cloud server snapshots
+# Copy this file to configs/your-server-name.yaml and modify as needed
+
+server:
+  # Server ID from Hetzner Cloud
+  id: "123456"
+  
+  # Server name (used for snapshot naming)
+  name: "example-server"
+  
+  # Your Hetzner Cloud API token
+  api_token: "your-api-token-here"
+  
+  # Number of most recent snapshots to retain
+  retain_last_snapshots: 7 

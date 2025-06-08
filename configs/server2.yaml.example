@@ -1,0 +1,15 @@
+# Configuration for second Hetzner Cloud server
+# Example configuration for a database server
+
+server:
+  # Server ID from Hetzner Cloud
+  id: "789012"
+  
+  # Server name (used for snapshot naming)
+  name: "prod-db-server"
+  
+  # Hetzner Cloud API token
+  api_token: "your-api-token-here"
+  
+  # Keep the last 14 snapshots (daily snapshots for two weeks)
+  retain_last_snapshots: 14

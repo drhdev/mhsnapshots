@@ -1,0 +1,16 @@
+# Configuration for first Hetzner Cloud server
+# Example configuration for a production web server
+
+server:
+  # Server ID from Hetzner Cloud
+  id: "123456"
+  
+  # Server name (used for snapshot naming)
+  name: "prod-web-server"
+  
+  # Hetzner Cloud API token
+  api_token: "your-api-token-here"
+  
+  # Keep the last 7 snapshots (daily snapshots for a week)
+  retain_last_snapshots: 7
+  
