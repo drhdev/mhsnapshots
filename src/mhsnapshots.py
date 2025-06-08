@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # mhsnapshots.py
-# Version: 0.2.3
+# Version: 0.3
 # Author: drhdev
 # License: GPL v3
 #
@@ -48,7 +48,11 @@ class SnapshotManager:
     def load_configs(self) -> List[ServerConfig]:
         servers = []
         for path in self.config_paths:
-            full_path = os.path.join(CONFIGS_DIR, path)
+            # Allow absolute paths for testability
+            if os.path.isabs(path):
+                full_path = path
+            else:
+                full_path = os.path.join(CONFIGS_DIR, path)
             if not os.path.exists(full_path):
                 self.error_exit(f"Configuration file '{full_path}' does not exist.")
             try:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # log2telegram.py
-# Version: 0.4.1
+# Version: 0.5
 # Author: drhdev
 # License: GPLv3
 #
@@ -94,7 +94,7 @@ def send_telegram_message(message, retries=3, delay_between_retries=5):
     logger.error(f"Failed to send Telegram message after {retries} attempts.")
     return False
 
-def format_message(raw_message):
+def format_message(raw_message, logger=None):
     """
     Formats the raw FINAL_STATUS log entry into a Markdown message for Telegram.
     Example Input:
@@ -111,7 +111,14 @@ def format_message(raw_message):
     """
     parts = raw_message.split(" | ")
     if len(parts) != 8:
-        logger.warning(f"Unexpected FINAL_STATUS format: {raw_message}")
+        # Use the global logger if not provided
+        if logger is None:
+            try:
+                logger = globals().get('logger', None)
+            except Exception:
+                logger = None
+        if logger:
+            logger.warning(f"Unexpected FINAL_STATUS format: {raw_message}")
         return raw_message  # Return as is if format is unexpected
 
     _, script_name, server_name, status, hostname, timestamp, snapshot_name, snapshot_info = parts
