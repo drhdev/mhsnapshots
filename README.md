@@ -37,7 +37,7 @@ sudo apt install hcloud-cli
 hcloud version
 ```
 
-Note: The official hcloud CLI is built and released for Linux/macOS/Windows x86_64 and FreeBSD—but not directly for Raspberry Pi’s ARM architecture, so you won’t find a ready-made ARM binary for Raspbian/Ubuntu on Pi but you can ompile from source (Go). 
+Note: The official hcloud CLI is built and released for Linux/macOS/Windows x86_64 and FreeBSD—but not directly for Raspberry Pi’s ARM architecture, so you won’t find a ready-made ARM binary for Raspbian/Ubuntu on Pi but you can compile from source (Go). 
 
 1.	Install Go (e.g. sudo apt install golang-go).
 
